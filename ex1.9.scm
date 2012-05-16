@@ -6,10 +6,9 @@
 ;    (inc (+ (dec a) b))))
 ;
 ; evaluate (+ 4 5) using the substituion model
-;
-;  (if (= 4 0)
-;    5
-;    (inc (+ (dec 4) 5))))
+; (+ 4 5)
+; (:q
+; 
 
 
 ; Recursive procecure
