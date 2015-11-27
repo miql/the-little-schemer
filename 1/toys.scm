@@ -154,3 +154,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 ; The primitive `null?` is defined only for lists.
+
+; is (atom? 'Harry) true or false?
+; #t
+
+(define atom?
+  (lambda (x)
+    (and
+     (not (pair? x))
+     (not (null? x)))))
+
+; is (atom? '(Harry had a heap of apples)) #t or #f?
+; #f, since it is a list
+
