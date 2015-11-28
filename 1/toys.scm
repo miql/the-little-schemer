@@ -167,3 +167,18 @@
 ; is (atom? '(Harry had a heap of apples)) #t or #f?
 ; #f, since it is a list
 
+; is (eq? 'Harry 'Harry)
+; #t
+
+; is (eq? 'margarine 'butter)
+; no, it's #f
+
+;;;;;;;;;;;;;;;;;;;;
+;; The Law of Eq? ;;
+;;;;;;;;;;;;;;;;;;;;
+
+; The primitive `eq?` takes two arguments.
+; Each must be a non-numeric atom
+
+; is (eq? (car '(Mary had a little lamb chop)) 'Mary)
+; #t
