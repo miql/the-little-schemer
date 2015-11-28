@@ -8,11 +8,11 @@
 (lat? '())
 ; #t, because it does not contain a list
 
-; lat is a lits of atoms
+; lat is a list of atoms
 
 (define lat?
   (lambda (l)
-     (cond          ; let's ask some questions
-     ((null? l) #t) ; is this a null list?
-     ((atom? (car l) (lat? (cdr l)))) ; is the first S-expression in the list an atom? is the rest an atom?
-     (else #f))))   ; otherwise, it's not a list of atoms
+     (cond            ; let's ask some questions
+       ((null? l) #t) ; is this an empty list?
+       ((atom? (car l) (lat? (cdr l)))) ; is the first S-expression in the list an atom? is the rest an atom?
+       (else #f))))   ; otherwise, it's not a list of atoms
