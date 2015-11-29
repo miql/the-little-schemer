@@ -8,8 +8,7 @@
 (lat? '())
 ; #t, because it does not contain a list
 
-; lat is a list of atoms
-
+; is `lat` a list of atoms
 (define lat?
   (lambda (l)
      (cond            ; let's ask some questions
@@ -28,6 +27,7 @@
 
 ; `or` asks questions one at a time
 
+; is `a` a member of `lat`?
 (define member?
   (lambda (a lat)
     (cond
@@ -35,3 +35,4 @@
      (else ; no other questions to ask
       (or (eq? (car lat) a) ; since lat is not null, let's find out if `car` of `lat` is the same as `a` or in the rest of `lat`
           (member? a (cdr lat)))))))
+
