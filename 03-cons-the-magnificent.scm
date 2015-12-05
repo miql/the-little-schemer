@@ -60,6 +60,8 @@
       (else (cons (car lat
                        (insertR new old (cdr lat)))))))))
 
+; inserts the atom `new` to the left of the first occurrence of the
+; atom `old` in `lat`
 (define insertL
   (lambda (new old lat)
     (cond
@@ -69,3 +71,13 @@
         (cons new (cons old (cdr lat))))
         (else (cons (car lat)
           ( insertL new old (cdr lat)))))))))
+
+; subst replaces the first ocrrence of `old` in the `lat` with `new`
+(define subst
+  (lambda (new old lat)
+    (cond
+     ((null? lat) (quote ()))
+     ((eq? (car lat) old) (cons new (cdr lat)))
+     (else
+      (cons (car lat)
+            (subst new old (cdr lat)))))))
