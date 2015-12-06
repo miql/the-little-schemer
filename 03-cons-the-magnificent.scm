@@ -81,3 +81,28 @@
      (else
       (cons (car lat)
             (subst new old (cdr lat)))))))
+
+; subst2 replaces either the first occurrenceof `o1` or the first occurrenceof `o2`
+; by `new`
+
+(define subst2
+  (lambda (new o1 o2 lat)
+    (cond
+     ((null? lat) (quote ()))
+     (cond
+      ((eq? (car lat) o1) (cons new (cdr lat)))
+      ((eq? (car lat) o2) (cons new (cdr lat)))
+      (else
+       (cons (car lat)
+             (subst2 new o1 o2 (cdr lat))))))))
+
+; subst2 improved
+(define subst-2
+  (lambda (new o1 o2 lat)
+    (cond
+     ((null? lat) (quote ()))
+     ((or
+      (eq? (car lat) o1)
+      (eq? (car lat) o2)
+        (cons new (cdr lat))))
+     (else (cons (car lat) (subst-2 new o1 o2 (cdr lat)))))))
