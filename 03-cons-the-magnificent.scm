@@ -105,7 +105,8 @@
       (eq? (car lat) o1)
       (eq? (car lat) o2)
         (cons new (cdr lat))))
-     (else (cons (car lat) (subst-2 new o1 o2 (cdr lat)))))))
+     (else (cons (car lat)
+                 (subst-2 new o1 o2 (cdr lat)))))))
 
 ; multirember gives as its final value the `lat` with all of the occurrence
 ; of `a` removed
@@ -115,8 +116,10 @@
     (cond
      ((null? lat) (quote ()))
      (cond
-      ((eq? (car lat) a) (multirember a (cdr lat)))
-      (else (cons (car lat) (multirember a (cdr lat))))))))
+      ((eq? (car lat) a)
+       (multirember a (cdr lat)))
+      (else (cons (car lat)
+                  (multirember a (cdr lat))))))))
 
 ; multiinsertR insert `new` to the right of each occurence `old` in `lat`
 (define multiinsertR
@@ -141,9 +144,11 @@
      (else
       (cond
        ((eq? (car lat) old)
-        (cons new (cons old (multiinsertL new old (cdr lat)))))
+        (cons new
+              (cons old (multiinsertL new old (cdr lat)))))
        (else
-        (cons (car lat) (multiinsertL new old (cdr lat))))))))))
+        (cons (car lat)
+              (multiinsertL new old (cdr lat))))))))))
 
 ; multisubst
 (define multisubst
@@ -153,6 +158,8 @@
       (else
        (cond
         ((eq? (car lat) old)
-         (cons new (multisubst new old (cdr lat))))
+         (cons new
+               (multisubst new old (cdr lat))))
         (else
-          (cons (car lat) (multisubst new old (cdr lat)))))))))
+          (cons (car lat)
+                (multisubst new old (cdr lat)))))))))
