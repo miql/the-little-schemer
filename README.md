@@ -5,7 +5,15 @@ Examples from The Little Schemer
 
 ## The First Commandment
 
-Always ask `null?` as the first question in expressing any functions.
+When recurring on a list of atoms, `lat`, ask two questions about it:
+
+- `(null? lat)`
+- `else`
+
+When recurring on a number, `n`, ask two questionsabout it:
+
+- `(zero? n)
+- `else`
 
 
 ## The Second Commandment
@@ -23,3 +31,4 @@ When building a list, describe the first typical element, and then `cons` it ont
 Always change at least one argument while recurring. It must be changed to be closer to termination. The changing argument must be tested in the termination condition:
 
 when using `cdr`, test termination with `null?`
+when using `sub1`, test termination with `zero?`
