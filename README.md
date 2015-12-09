@@ -6,14 +6,12 @@ Examples from The Little Schemer
 ## The First Commandment
 
 When recurring on a list of atoms, `lat`, ask two questions about it:
-
-- `(null? lat)`
-- `else`
+1. `(null? lat)`
+1. `else`
 
 When recurring on a number, `n`, ask two questionsabout it:
-
-- `(zero? n)
-- `else`
+1. `(zero? n)
+1. `else`
 
 
 ## The Second Commandment
