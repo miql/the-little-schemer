@@ -25,6 +25,27 @@
 ; tup(le) is a list of numbers
 '(8 55 5 555)
 
+; when building lists with cons the value of the terminal condtion is `()`
+; what should
+
+; what is the natural terminal condition for a list?
+; (null? l)
+
+; what is the natural terminal condition for a tup?
+; (null? tup)
+
+; what is used in the natural recursion on a list?
+; (cdr lat)
+
+; what is used in the natural recursion on a tup?
+; (cdr tup)
+
+; what is the natural terminal condition for numbers?
+; (zero? n)
+
+; what is the natural recursion on a number?
+; (sub1 n)
+
 ; addtup builds a number by totaling all the numbers in its arguments
 (define addtup
   (lambda (tup)
@@ -32,3 +53,11 @@
     ((null? tup) 0) ; terminal conditions
      (else
       (o+ (car tup) (addtup (cdr tup)))))))
+
+;
+(define ox
+  (lambda (n m)
+    (cond
+     ((zero? m) 0)
+     (else
+      (o+ n (ox n (sub1 m)))))))
